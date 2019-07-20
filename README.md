@@ -12,6 +12,6 @@ To make the election more transparent, we can send the details of the vote back 
 
 To make it possible for the voter to cast his vote from a different location, we can get his data from the server and can verify him with his QR code. We can also provide people who are new to voting to register themselves online. This will help to manage and store data well. We will try to do most of the things online as much as possible. For biometric, he has to register offline. A unique QR code will be provided online as soon as voter verifies himself offline and can print it and use it during verification at the polling booth. Online, he can also change his unique 4 digit PIN code which will be used before vote casting.
 
-#### **Computing is always faster than working manually.**
+#### **Computing is always faster than working manually**
 
 Azure blockchain can help us to get fast election results. We can program it to count votes from the very first day but will display result later or can start a live server which will display live result and update itself constantly to add more transparency and security. Blockchain is secure and very difficult for anyone to tamper with the data. Voter's data which include the party's name, time and voter details will be secured cryptographically. Request to get into the main blockchain will emerge randomly from different constituencies which will make it difficult to hack and tamper with details from a particular constituency or area. Because getting details of a particular block will alter the address of block behind it.
