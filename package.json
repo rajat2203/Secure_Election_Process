@@ -1,0 +1,16 @@
+{
+  "name": "secure_election",
+  "version": "1.0.0",
+  "description": "This project is about how to make election process more secure, reliable, and transparent.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "npm",
+    "package.json",
+    "node.js"
+  ],
+  "author": "Rajat",
+  "license": "MIT"
+}
