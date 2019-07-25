@@ -12,5 +12,8 @@
     "node.js"
   ],
   "author": "Rajat",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^6.1.0"
+  }
 }
