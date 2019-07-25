@@ -22,8 +22,4 @@ const nacSlide = () => {
 };
 
 nacSlide();
-
-// ? Nav-Bar end
-
-// ! click to qr page
-const qrbtn = document.querySelector("#click-to-qr-btn");
+// ! Nav-Bar end

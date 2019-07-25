@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Welcome</title>
     <link rel="stylesheet" href="../CSS/index_style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <!-- ? Nav-Bar-Start -->
@@ -14,8 +18,13 @@
         <h4>ELECTION 2019</h4>
       </div>
       <ul class="nav-links">
-        <li><a href="#">HOME</a></li>
-        <li><a href="#">TOLL-FREE: 1950</a></li>
+        <li><a href="./index.html">HOME</a></li>
+        <li>
+          <a
+            ><i style="font-size:17px" class="fa fa-phone"></i> TOLL-FREE:
+            1950</a
+          >
+        </li>
       </ul>
       <div class="burger">
         <div class="line1"></div>
@@ -24,16 +33,31 @@
       </div>
     </nav>
     <!-- ? Nav-Bar-End -->
-    <img
-      class="img1"
-      src="../../Images/Main-Background Images/vote_one.jpg"
-      alt=""
-    />
-    <img
-      class="img2"
-      src="../../Images/Main-Background Images/vote_two.jpg"
-      alt=""
-    />
+    <div class="main_background">
+      <div class="description-box">
+        <div class="container-des">
+          <div class="des-title">
+            SECURE <br />
+            <br />RELIABLE <br />
+            <br />
+            & <br /><br />
+            TRANSPARENT ELECTION
+            <br />
+            <br />
+            With
+            <br />
+            <br />
+            <br />
+            <p class="azureblock"><b>AZURE BLOCKCHAIN</b></p>
+          </div>
+        </div>
+      </div>
+      <div class="btn-qr-code">
+        <a href="./QR-page.html"
+          ><button id="click-to-qr-btnt">Click To Scan QR CODE</button></a
+        >
+      </div>
+    </div>
   </body>
   <script src="../JavaScript/index_JS.js"></script>
 </html>
