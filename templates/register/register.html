@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ELECTION</title>
+    <link rel="stylesheet" href="../../static/CSS/register.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <!-- ? Nav-Bar-Start -->
+    <nav>
+      <div class="logo">
+        <h4>ELECTION 2019</h4>
+      </div>
+      <ul class="nav-links">
+        <li><a style="color: aqua" href="login">SIGN IN</a></li>
+        <li>
+          <a
+            ><i style="font-size:17px" class="fa fa-phone"></i> TOLL-FREE:
+            1950</a
+          >
+        </li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+    <!-- ? Nav-Bar-End -->
+    <div class="main_background">
+      <!-- {% comment %}
+      <form action="login" method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="User Name" name="username" /><br />
+        <input type="password" name="password" /><br />
+        <input type="submit" />
+      </form>
+      {% endcomment %} -->
+      <div class="login-wrap">
+        <div class="login-html">
+          {% csrf_token %}
+          <input
+            id="tab-1"
+            type="radio"
+            name="tab"
+            class="sign-in"
+            checked
+          /><label for="tab-1" class="tab">Sign UP</label>
+          <input id="tab-2" type="radio" name="tab" class="sign-up" /><label
+            for="tab-2"
+            class="tab"
+          ></label>
+          <div class="login-form">
+            <div class="sign-in-htm">
+              <div class="group">
+                <input
+                  placeholder="First Name"
+                  id="user"
+                  type="text"
+                  class="input"
+                />
+              </div>
+              <div class="group">
+                <input
+                  placeholder="Last Name"
+                  id="user"
+                  type="text"
+                  class="input"
+                />
+              </div>
+              <div class="group">
+                <input
+                  placeholder="User Name"
+                  id="user"
+                  type="text"
+                  class="input"
+                />
+              </div>
+              <div class="group">
+                <input
+                  placeholder="Email"
+                  id="user"
+                  type="text"
+                  class="input"
+                />
+              </div>
+              <div class="group">
+                <input
+                  id="pass"
+                  type="password"
+                  class="input"
+                  data-type="password"
+                  placeholder="Password"
+                />
+              </div>
+              <div class="group">
+                <input
+                  id="pass"
+                  type="password"
+                  class="input"
+                  data-type="password"
+                  placeholder="Re-write Password"
+                />
+              </div>
+
+              <br />
+              <div class="group">
+                <input type="submit" class="button" value="Sign Up" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../../static/JavaScript/login.js"></script>
+</html>

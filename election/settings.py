@@ -54,7 +54,9 @@ ROOT_URLCONF = 'election.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates/main')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates/main'),
+                 os.path.join(BASE_DIR, 'templates/register'),
+                 os.path.join(BASE_DIR, 'templates/login')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
