@@ -1,31 +1,16 @@
- {% extends "base.html" %} 
+{% extends "base.html" %} 
 
  {% block content %}
  
-<div class="description-box">
-        <div class="container-des">
-          <div class="des-title">
-            SECURE <br />
-            <br />RELIABLE <br />
-            <br />
-            & <br /><br />
-            TRANSPARENT ELECTION
-            <br />
-            <br />
-            With
-            <br />
-            <br />
-            <br />
-            <p class="azureblock"><b>AZURE BLOCKCHAIN</b></p>
-          </div>
-        </div>
+ <div class="main_background_btn">
+      <div class="btn-qr-code">
+        <a href="accounts/signup"> <button id="click-to-qr-btnt">SIGN UP</button></a>
       </div>
       <div class="btn-qr-code">
-        <a href="options"
-          ><button id="click-to-qr-btnt">Click To Cast Vote</button></a
-        >
+        <a href="accounts/signin"><button id="click-to-qr-btnt">SIGN IN</button></a>
       </div>
-</div>
+    </div>
+    
 <style>
   /* * button to signup or signin page code */
   button {
@@ -75,29 +60,14 @@
     transition: 800ms ease all;
   }
 
+.main_background_btn{
+   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-transform: uppercase;
+}
   /* ? btn qr code ends  */
 
-  /* * description box start */
-  .description-box {
-    background: rgba(223, 223, 223, 0);
-    width: 50vw;
-    height: 70vh;
-    float: left;
-    margin-top: 40px;
-    margin-left: 40px;
-  }
-
-  .des-title {
-    text-align: center;
-    font-size: 34px;
-    color: #1a1212;
-  }
-
-  .azureblock {
-    font-size: 37px;
-    color: black;
-  }
 </style>
 
  {% endblock  %} 
-

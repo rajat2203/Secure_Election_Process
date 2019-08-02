@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ELECTION</title>
+    <link rel="stylesheet" href="{% static '../static/css/baap.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      .login-form {
+        min-height: 345px;
+        position: relative;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+      }
+      .login-form .group {
+        margin-bottom: 15px;
+      }
+      .login-form .group .label,
+      .login-form .group .input,
+      .login-form .group .button {
+        width: 30%;
+        color: #fff;
+        display: block;
+      }
+      .login-form .group .input,
+      .login-form .group .button {
+        border: none;
+        padding: 15px 20px;
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .login-form .group input[data-type="password"] {
+        text-security: circle;
+        -webkit-text-security: circle;
+      }
+      .login-form .group .button {
+        background: #1aab8a;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ? Nav-Bar-Start -->
+    <nav>
+      <div class="logo">
+        <h4>ELECTION 2019</h4>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a
+            style="font-family: monospace;color: aqua"
+            class="sign_up"
+            href="signup"
+            >SIGN UP</a
+          >
+        </li>
+        <li>
+          <a
+            ><i style="font-size:17px" class="fa fa-phone"></i> TOLL-FREE:
+            1950</a
+          >
+        </li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+    <!-- ? Nav-Bar-End -->
+    <div class="main_background">
+      <div>
+        <center>
+          <div class="form_up">
+            <form autocomplete="off" action="login" method="POST">
+              {% csrf_token %}
+              <div class="login-html">
+                <div class="login-form">
+                  <div class="sign-un-htm">
+                    <div class="group">
+                      <input
+                        placeholder="User ID"
+                        name="username"
+                        type="text"
+                        class="input"
+                      />
+                    </div>
+                    <div class="group">
+                      <input
+                        name="password"
+                        type="password"
+                        class="input"
+                        data-type="password"
+                        placeholder="4 Digit PIN"
+                      />
+                    </div>
+                    <br />
+                    <div class="group">
+                      <input type="submit" class="button" value="Sign Up" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </center>
+      </div>
+    </div>
+  </body>
+  <script src="{% static '../static/js/baap.js' %}"></script>
+</html>

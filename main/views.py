@@ -8,5 +8,5 @@ def index(request):
     return render(request, 'index.html')
 
 
-def about(request):
-    return render(request, 'about-login.html')
+def options(request):
+    return render(request, 'signup-or-in.html')

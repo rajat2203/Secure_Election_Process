@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ELECTION VOTING</title>
+    <link rel="stylesheet" href="{% static '../static/css/baap.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script type="text/javascript">
+      function preventBack() {
+        window.history.forward();
+      }
+      setTimeout("preventBack()", 0);
+      window.onunload = function() {
+        null;
+      };
+    </script>
+
+    <style></style>
+  </head>
+  <body>
+    <!-- ? Nav-Bar-Start -->
+    <nav>
+      <div class="logo">
+        <h4>ELECTION 2019</h4>
+      </div>
+      <ul class="nav-links">
+        {% if user.is_authenticated %}
+        <li style="color:cyan">Hello, {{ user.first_name }}</li>
+        {% endif %}
+        <li>
+          <a
+            ><i style="font-size:17px" class="fa fa-phone"></i> TOLL-FREE:
+            1950</a
+          >
+        </li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+    <!-- ? Nav-Bar-End -->
+    <div class="main_background">
+      <button value="BJP" name="BJP">BJP</button><br />
+      <button value="CONGRESS" name="CONGRESS">CONGRESS</button><br />
+      <button value="AAP" name="AAP">AAP</button><br />
+      <button value="NOTA" name="NOTA">NOTA</button>
+    </div>
+  </body>
+  <script src="{% static '../static/js/baap.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    crossorigin="anonymous"
+  ></script>
+</html>
