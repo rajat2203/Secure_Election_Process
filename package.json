@@ -1,0 +1,18 @@
+{
+  "name": "Bchain",
+  "version": "1.0.0",
+  "description": "As we all know that election is the most important phase for any country and it's citizens. So, to make it secure, reliable and transparent is the foremost duty of Election Commission of that country. In India, since the past couple of years, there has been a lot of questions on EVMs security and it's tampering. So, there is an urgent need to come up with a more secure way of its processing.",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "ganache-cli": "^6.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
