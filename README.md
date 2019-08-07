@@ -1,4 +1,4 @@
-## **SECURE, RELIABLE, AND TRANSPARENT ELECTION** ![Django 2.0.5](https://img.shields.io/badge/Django-2.2.0-green.svg) ![Python 3.6](https://img.shields.io/badge/Python-3.7.4-blue.svg)
+## **SECURE, RELIABLE, AND TRANSPARENT ELECTION** ![Django 2.0.5](https://img.shields.io/badge/Django-2.2.0-green.svg) ![Python 3.6](https://img.shields.io/badge/Python-3.7.4-blue.svg) ![Solidiy 5.0.0](https://img.shields.io/badge/Solidity-5.0.0-red.svg)
 
 As we all know that election is the most important phase for any country and it's citizens. So, to make it secure, reliable and transparent is the foremost duty of Election Commission of that country. In India, since the past couple of years, there has been a lot of questions on EVMs security and it's tampering. So, there is an urgent need to come up with a more secure way of its processing.
 
