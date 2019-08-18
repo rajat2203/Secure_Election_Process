@@ -1,0 +1,288 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="refresh" content="10">
+    <title>RESULT ELECTION</title>
+    <link rel="stylesheet" href="{% static '../static/css/baap.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      .container {
+        position: relative;
+        text-align: center;
+        color: white;
+      }
+    
+      .centered {
+        position: absolute;
+        top: 29%;
+        left: 27.2%;
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-transform: uppercase;
+      }
+      .to-left {
+        position: absolute;
+        top: 210px;
+        left: 180px;
+        letter-spacing: 1px;
+        font-size: 15px;
+        color: #cacaca;
+      }
+    </style>
+    <style>
+      .button {
+        /* 5d6463 */
+        background: #838b8a;
+        color: #fff;
+        border: none;
+        position: relative;
+        height: 150px;
+        font-size: 1.6em;
+        padding: 0 2em;
+        cursor: pointer;
+        transition: 800ms ease all;
+        outline: none;
+        float: right;
+        margin-right: 6vh;
+        border-radius: 5px;
+      }
+
+      /* ? btn qr code ends  */
+      .top-left {
+  position: absolute;
+  top: 60px;
+  left: 470px;
+  font-size: 55px;
+  color: black
+}
+
+
+
+
+    </style>
+  </head>
+  <body style="background:#2f2626">
+    <!-- ? Nav-Bar-Start -->
+    <nav>
+      <div class="logo">
+        <h4>RESULT GENERAL ELECTION 2019</h4>
+      </div>
+
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+    <!-- ? Nav-Bar-End -->
+    <div style="margin-top: 0.1px" class="container">
+      <img
+        src="../../static/img/newV/abc-accomplished-alphabet-48898.jpg"
+        alt="Snow"
+        style="width: 100vw;height: 87vh;"
+      />
+      <div class="top-left">Live Voting Count</div>
+      <div class="centered ">
+        <button class="button" id="b-j-p" name="BJP">
+          BJP <br /><img style="width: 80px" src="../../static/img/b-logo.jpg" alt="" />
+        <br>
+        <p id="para">nil</p>
+        </button><br />
+        <button class="button" id="i-n-c" name="CONGRESS">
+          INC <br /><img style="width: 80px;height: 50px;" src="../../static/img/c-logo.png" alt="" /><br>
+          <p id="para1">nil</p></button><br />
+        <button class="button" id="a-a-p" name="AAP">
+          AAP <br /><img style="width: 80px;height: 50px;" src="../../static/img/aap-logo.jpg" alt="" /><br>
+          <p id="para2">nil</p></button><br />
+        <button class="button" id="n-o-t-a" name="NOTA">
+          NOTA <br /><img style="width: 80px;height: 50px;" src="../../static/img/nota.png" alt="" /><br>
+          <p id="para3">nil</p>
+        </button>
+        <div class="to-left">
+          <button class="button" id="n-o-t-a" name="TOTAL VOTES">
+            TOTAL VOTES <br /><br>
+            <p id="para4">nil</p>
+          </button>
+        </div>
+      </div>
+    <!-- end -->
+    <footer style="height: 28px;;margin-top: 0;background:#2f2626 ">
+      <div style="text-align: center" class="footer">
+        <p
+          style="font-size: 16px;font-family: monospace;color: rgb(189, 189, 189)"
+        >
+          <b>ELECTION COMMISSION OF INDIA</b>
+        </p>
+      </div>
+    </footer>
+  </body>
+  <script src="{% static '../static/js/baap.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+  <script>
+    var contract;
+
+    $(document).ready(function () {
+      web3 = new Web3(web3.currentProvider);
+
+      var address = "0x0e6ad68508bc52418ba202082ff8299c2156ae85";
+      var abi = [
+        {
+          "constant": false,
+          "inputs": [],
+          "name": "aap",
+          "outputs": [],
+          "payable": false,
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "constant": false,
+          "inputs": [],
+          "name": "bpg",
+          "outputs": [],
+          "payable": false,
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "constant": false,
+          "inputs": [],
+          "name": "congress",
+          "outputs": [],
+          "payable": false,
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "constant": false,
+          "inputs": [],
+          "name": "nota",
+          "outputs": [],
+          "payable": false,
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "payable": false,
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "constant": true,
+          "inputs": [],
+          "name": "getaap",
+          "outputs": [
+            {
+              "name": "",
+              "type": "int256"
+            }
+          ],
+          "payable": false,
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "constant": true,
+          "inputs": [],
+          "name": "getbpg",
+          "outputs": [
+            {
+              "name": "",
+              "type": "int256"
+            }
+          ],
+          "payable": false,
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "constant": true,
+          "inputs": [],
+          "name": "getcongress",
+          "outputs": [
+            {
+              "name": "",
+              "type": "int256"
+            }
+          ],
+          "payable": false,
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "constant": true,
+          "inputs": [],
+          "name": "getnota",
+          "outputs": [
+            {
+              "name": "",
+              "type": "int256"
+            }
+          ],
+          "payable": false,
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "constant": true,
+          "inputs": [],
+          "name": "gettv",
+          "outputs": [
+            {
+              "name": "",
+              "type": "int256"
+            }
+          ],
+          "payable": false,
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ]
+      contract = new web3.eth.Contract(abi, address);
+      contract.methods
+        .getbpg()
+        .call()
+        .then(function (Nil) {
+          $("#para").html(Nil);
+        });
+      contract.methods
+        .getcongress()
+        .call()
+        .then(function (Nil) {
+          $("#para1").html(Nil);
+        });
+      contract.methods
+        .getaap()
+        .call()
+        .then(function (Nil) {
+          $("#para2").html(Nil);
+        });
+      contract.methods
+        .getnota()
+        .call()
+        .then(function (Nil) {
+          $("#para3").html(Nil);
+        });
+      contract.methods
+        .gettv()
+        .call()
+        .then(function (bal) {
+          $("#para4").html(bal);
+        });
+     
+    });
+  </script>
+  
+  </html>

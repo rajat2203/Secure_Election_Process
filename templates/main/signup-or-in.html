@@ -1,73 +1,210 @@
-{% extends "base.html" %} 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ELECTION</title>
+    <link rel="stylesheet" href="{% static '../static/css/baap.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      .container {
+        position: relative;
+        text-align: center;
+        color: white;
+      }
 
- {% block content %}
- 
- <div class="main_background_btn">
-      <div class="btn-qr-code">
-        <a href="accounts/signup"> <button id="click-to-qr-btnt">SIGN UP</button></a>
+      .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+    <style>
+      .login-form {
+        min-height: 345px;
+        position: relative;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+      }
+
+      .login-form .group {
+        margin-bottom: 15px;
+      }
+
+      .login-form .group .label,
+      .login-form .group .input,
+      .login-form .group .button {
+        width: 30%;
+        color: #fff;
+        display: block;
+      }
+
+      .login-form .group .input,
+      .login-form .group .button {
+        border: none;
+        padding: 15px 20px;
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .login-form .group input[data-type="password"] {
+        text-security: circle;
+        -webkit-text-security: circle;
+      }
+
+      .login-form .group .button {
+        background: #1aab8a;
+      }
+
+      button {
+        background: #1aab8a;
+        color: #fff;
+        border: none;
+        position: relative;
+        height: 60px;
+        font-size: 1.6em;
+        padding: 0 2em;
+        cursor: pointer;
+        transition: 800ms ease all;
+        outline: none;
+        float: right;
+        margin-right: 10vh;
+        border-radius: 5px;
+      }
+
+      button:hover {
+        background: rgb(255, 255, 255);
+        color: #8d6d14;
+      }
+
+      button:before,
+      button:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 2px;
+        width: 0;
+        background: #1aab8a;
+        transition: 400ms ease all;
+      }
+
+      button:after {
+        right: inherit;
+        top: inherit;
+        left: 0;
+        bottom: 0;
+      }
+
+      button:hover:before,
+      button:hover:after {
+        width: 100%;
+        transition: 800ms ease all;
+      }
+
+      .centered {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-transform: uppercase;
+      }
+
+      /* ? btn qr code ends  */
+
+      .top-left {
+        position: absolute;
+        top: 120px;
+        left: 16px;
+        font-size: 35px;
+        color: bisque;
+      }
+
+      .top-right {
+        position: absolute;
+        top: 120px;
+        right: 16px;
+        font-size: 35px;
+        color: bisque;
+      }
+    </style>
+    <script>
+      history.pushState(null, null, location.href);
+      window.onpopstate = function() {
+        history.go(1);
+      };
+    </script>
+  </head>
+
+  <body style="background:#2f2626">
+    <!-- ? Nav-Bar-Start -->
+    <nav>
+      <div class="logo">
+        <h4>GENERAL ELECTION 2019</h4>
       </div>
-      <div class="btn-qr-code">
-        <a href="accounts/signin"><button id="click-to-qr-btnt">SIGN IN</button></a>
+      <ul class="nav-links">
+        <li>
+          <a
+            ><i style="font-size:17px" class="fa fa-phone"></i> TOLL-FREE:
+            1950</a
+          >
+        </li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+    <!-- ? Nav-Bar-End -->
+    <div style="margin-top: 0.1px" class="container">
+      <img
+        src="../../static/img/Updated/background-1409125.png"
+        alt="Snow"
+        style="width: 100vw;height: 87vh;"
+      />
+      <div class="top-left">
+        New to vote? <br />
+        Register first and then Vote
+      </div>
+      <div class="top-right">
+        Already have Voter ID, <br />
+        click Vote and choose best party
+      </div>
+      <div class="centered ">
+        <div class="signup ">
+          <a href="accounts/signup">
+            <button id="click-to-qr-btnt">REGISTER</button></a
+          >
+        </div>
+        <div class="signin ">
+          <a href="accounts/signin"
+            ><button id="click-to-qr-btnt">VOTE</button></a
+          >
+        </div>
       </div>
     </div>
-    
-<style>
-  /* * button to signup or signin page code */
-  button {
-    background: #1aab8a;
-    color: #fff;
-    border: none;
-    position: relative;
-    height: 60px;
-    font-size: 1.6em;
-    padding: 0 2em;
-    cursor: pointer;
-    transition: 800ms ease all;
-    outline: none;
-    float: right;
-    margin-top: 39vh;
-    margin-right: 10vh;
-    border-radius: 5px;
-  }
-
-  button:hover {
-    background: #fff;
-    color: #1aab8a;
-  }
-
-  button:before,
-  button:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 2px;
-    width: 0;
-    background: #1aab8a;
-    transition: 400ms ease all;
-  }
-
-  button:after {
-    right: inherit;
-    top: inherit;
-    left: 0;
-    bottom: 0;
-  }
-
-  button:hover:before,
-  button:hover:after {
-    width: 100%;
-    transition: 800ms ease all;
-  }
-
-.main_background_btn{
-   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  text-transform: uppercase;
-}
-  /* ? btn qr code ends  */
-
-</style>
-
- {% endblock  %} 
+    <!-- end -->
+    <footer style="height: 28px;;margin-top: 0;background:#2f2626 ">
+      <div style="text-align: center" class="footer">
+        <p
+          style="font-size: 16px;font-family: monospace;color: rgb(189, 189, 189)"
+        >
+          <b>ELECTION COMMISSION OF INDIA</b>
+        </p>
+      </div>
+    </footer>
+  </body>
+  <script src="{% static '../static/js/baap.js' %}"></script>
+  <script>
+    history.pushState(null, null, location.href);
+    window.onpopstate = function() {
+      history.go(1);
+    };
+  </script>
+</html>

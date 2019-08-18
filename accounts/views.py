@@ -21,13 +21,26 @@ def login(request):
         password = request.POST['password']
 
         user = auth.authenticate(username=username, password=password)
+        u = User.objects.get(username=username)
 
         if user is not None:
-            auth.login(request, user)
-            return redirect('govote')
+            # auth.login(request, user)
+            # return redirect('govote')
+            if  user.is_staff == False:
+                u.is_staff = True
+                u.save()
+                auth.login(request, user)
+                return redirect('govote')
+
+            else:
+                messages.info(request, 'You have Already Voted')
+                return redirect('signin')
+
+
+            
         else:
-            messages.info(request, 'invalid')
-            return redirect('sign-in')
+            messages.info(request, 'Invalid')
+            return redirect('signin')
     else:
         return render(request, 'sign-in.html')
 
@@ -50,6 +63,7 @@ def register(request):
         password2 = request.POST['password2']
         email = request.POST['email']
 
+
         if password1 == password2:
             if User.objects.filter(username=username).exists():
                 messages.info(request, 'Username Taken')
@@ -67,7 +81,8 @@ def register(request):
                 return redirect('signin')
 
         else:
-            print('password not matching....')
+            messages.info(request, 'password not matching....')
+            print('Password not matching....')
             return redirect('signup')
         return redirect('/')
 

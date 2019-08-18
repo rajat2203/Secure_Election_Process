@@ -6,61 +6,165 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>ELECTION</title>
-
     <link rel="stylesheet" href="{% static '../static/css/baap.css' %}" />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-
     <style>
-      .login-html {
-        justify-content: space-around;
+      .container {
+        position: relative;
+        text-align: center;
+        color: white;
       }
+
+      .centered {
+        position: absolute;
+        top: 6%;
+        left: 37%;
+        width: 63%;
+        display: block;
+        justify-content: space-around;
+        align-items: center;
+        text-transform: uppercase;
+      }
+      ::placeholder {
+        /* Firefox, Chrome, Opera */
+        color: rgb(235, 235, 236);
+      }
+    </style>
+    <style>
       .login-form {
         min-height: 345px;
         position: relative;
         perspective: 1000px;
         transform-style: preserve-3d;
       }
+
       .login-form .group {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
       }
+
       .login-form .group .label,
       .login-form .group .input,
       .login-form .group .button {
-        width: 30%;
+        width: 40%;
         color: #fff;
         display: block;
+        opacity: 1;
       }
-      .login-form .group .input,
+
+      .login-form .group .input {
+        border: none;
+        padding: 14px 30px;
+        border-radius: 15px;
+        background: rgba(0, 0, 0, 0.15);
+      }
+
       .login-form .group .button {
         border: none;
         padding: 15px 20px;
         border-radius: 25px;
         background: rgba(255, 255, 255, 0.1);
       }
+
       .login-form .group input[data-type="password"] {
         text-security: circle;
         -webkit-text-security: circle;
       }
+
       .login-form .group .button {
         background: #1aab8a;
       }
+
+      button {
+        background: #1aab8a;
+        color: #fff;
+        border: none;
+        position: relative;
+        height: 60px;
+        font-size: 1.6em;
+        padding: 0 2em;
+        cursor: pointer;
+        transition: 800ms ease all;
+        outline: none;
+        float: right;
+        margin-right: 10vh;
+        border-radius: 5px;
+      }
+
+      button:hover {
+        background: rgb(255, 255, 255);
+        color: #8d6d14;
+      }
+
+      button:before,
+      button:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 2px;
+        width: 0;
+        background: #1aab8a;
+        transition: 400ms ease all;
+      }
+
+      button:after {
+        right: inherit;
+        top: inherit;
+        left: 0;
+        bottom: 0;
+      }
+
+      button:hover:before,
+      button:hover:after {
+        width: 100%;
+        transition: 800ms ease all;
+      }
+
+      /* ? btn qr code ends  */
+      textarea:focus,
+      input:focus {
+        color: #ff0000;
+      }
+
+      .top-left {
+        position: absolute;
+        top: 100px;
+        left: 20px;
+        color: black;
+        font-size: 35px;
+      }
+      .top-right {
+        position: absolute;
+        top: 200px;
+        right: 2px;
+        color: black;
+        font-size: 34px;
+      }
+      .bob-left {
+        position: absolute;
+        bottom: 130px;
+        right: 300px;
+        color: red;
+        font-size: 20px;
+      }
     </style>
   </head>
-
-  <body>
+  <body style="background:#2f2626">
     <!-- ? Nav-Bar-Start -->
     <nav>
       <div class="logo">
-        <h4>ELECTION 2019</h4>
+        <h4>GENERAL ELECTION 2019</h4>
       </div>
       <ul class="nav-links">
         <li>
-          <a style="font-family: monospace; color: aqua" href="signin"
-            >SIGN IN</a
+          <a
+            style="font-family: monospace;color: aqua"
+            class="sign_up"
+            href="signin"
+            >VOTE</a
           >
         </li>
         <li>
@@ -77,85 +181,145 @@
       </div>
     </nav>
     <!-- ? Nav-Bar-End -->
-    <div class="main_background">
-      <div>
-        <center>
-          <div class="form_up">
-            <form autocomplete="off" action="register" method="POST">
-              {% csrf_token %}
-              <div class="login-html">
-                <div class="login-form">
-                  <div class="sign-un-htm">
-                    <div class="group">
-                      <input
-                        placeholder="First Name"
-                        type="text"
-                        class="input"
-                        name="first_name"
-                      />
-                    </div>
-                    <div class="group">
-                      <input
-                        placeholder="Last Name"
-                        name="last_name"
-                        type="text"
-                        class="input"
-                      />
-                    </div>
-                    <div class="group">
-                      <input
-                        placeholder="Age"
-                        type="number"
-                        class="input"
-                        name="age"
-                      />
-                    </div>
-                    <div class="group">
-                      <input
-                        placeholder="User ID"
-                        name="username"
-                        type="text"
-                        class="input"
-                      />
-                    </div>
-                    <div class="group">
-                      <input
-                        placeholder="Email"
-                        name="email"
-                        type="email"
-                        class="input"
-                      />
-                    </div>
-                    <div class="group">
-                      <input
-                        name="password1"
-                        type="password"
-                        class="input"
-                        data-type="password"
-                        placeholder="4 Digit PIN"
-                      />
-                    </div>
-                    <div class="group">
-                      <input
-                        name="password2"
-                        type="password"
-                        class="input"
-                        data-type="password"
-                        placeholder="Re-write PIN"
-                      />
-                    </div>
-                    <br />
-                    <div class="group">
-                      <input type="submit" class="button" value="Sign Up" />
-                    </div>
+    <div style="margin-top: 0.1px" class="container">
+      <img
+        src="../../static/img/back/color-2174049.png"
+        alt="Snow"
+        style="width: 100vw;height: 87vh;"
+      />
+      <div class="bob-left">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+      </div>
+
+      <div class="top-right">
+        Just Turned 18? <br />
+        cast your vote <br />
+        and contribute towards development <br />
+        of INDIA
+      </div>
+      <div class="top-left">
+        Not have Voter card? <br />
+        register yourself in One step <br />
+        and Vote <br /><br /><br /><br /><br />
+        #GoVote
+      </div>
+      <div class="centered ">
+        <div class="form_up">
+          <form autocomplete="off" action="register" method="POST">
+            {% csrf_token %}
+            <div class="login-html">
+              <div class="login-form">
+                <div class="sign-un-htm">
+                  <div class="group">
+                    <input
+                      placeholder="First Name"
+                      type="text"
+                      class="input"
+                      name="first_name"
+                      pattern="[A-Za-z].{2,}"
+                      required
+                    />
+                  </div>
+                  <div class="group">
+                    <input
+                      placeholder="Last Name"
+                      name="last_name"
+                      type="text"
+                      class="input"
+                      pattern="[A-Za-z].{3,}"
+                      required
+                    />
+                  </div>
+                  <div class="group">
+                    <input
+                      placeholder="Age (above 18 or equal to 18 only)"
+                      type="number"
+                      class="input"
+                      name="age"
+                      min="18"
+                      required
+                    />
+                  </div>
+                  <div class="group">
+                    <input
+                      placeholder="Voter ID"
+                      name="username"
+                      type="text"
+                      class="input"
+                      title="Minimum 5 characters "
+                      pattern="[A-Za-z].{4,}"
+                      required
+                    />
+                  </div>
+                  <div class="group">
+                    <input
+                      placeholder="Email"
+                      name="email"
+                      type="email"
+                      class="input"
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                      required
+                    />
+                  </div>
+                  <div class="group">
+                    <input
+                      name="password1"
+                      type="password"
+                      class="input"
+                      data-type="password"
+                      placeholder="4 Digit PIN"
+                      pattern=".{4,4}"
+                      title="4 digits only"
+                      required
+                    />
+                  </div>
+                  <div class="group">
+                    <input
+                      name="password2"
+                      type="password"
+                      class="input"
+                      data-type="password"
+                      placeholder="Re-write PIN"
+                      pattern=".{4,4}"
+                      title="Same as PIN"
+                      required
+                    />
+                  </div>
+                  <br />
+                  <div class="group">
+                    <input
+                      id="submitBtn"
+                      type="submit"
+                      class="button"
+                      value="REGISTER"
+                      required
+                    />
                   </div>
                 </div>
               </div>
-            </form>
-          </div>
-        </center>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-    <script src="{% static '../static/js/baap.js' %}"></script>
+    <!-- end -->
+    <footer style="height: 28px;;margin-top: 0;background:#2f2626 ">
+      <div style="text-align: center" class="footer">
+        <p
+          style="font-size: 16px;font-family: monospace;color: rgb(189, 189, 189)"
+        >
+          <b>ELECTION COMMISSION OF INDIA</b>
+        </p>
+      </div>
+    </footer>
   </body>
+  <script src="{% static '../static/js/baap.js' %}"></script>
+  <script>
+    history.pushState(null, null, location.href);
+    window.onpopstate = function() {
+      history.go(1);
+    };
+  </script>
 </html>

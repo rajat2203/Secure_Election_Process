@@ -5,13 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>ELECTION VOTING</title>
+    <title>ELECTION</title>
     <link rel="stylesheet" href="{% static '../static/css/baap.css' %}" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-
     <script type="text/javascript">
       function preventBack() {
         window.history.forward();
@@ -21,19 +20,142 @@
         null;
       };
     </script>
+    <style>
+      .container {
+        position: relative;
+        text-align: center;
+        color: white;
+      }
 
-    <style></style>
+      .centered {
+        position: absolute;
+        top: 60%;
+        left: 27.2%;
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-transform: uppercase;
+      }
+    </style>
+    <style>
+      button {
+        /* 5d6463 */
+        background: #838b8a;
+        color: #fff;
+        border: none;
+        position: relative;
+        height: 100px;
+        font-size: 1.6em;
+        padding: 0 2em;
+        cursor: pointer;
+        transition: 800ms ease all;
+        outline: none;
+        float: right;
+        margin-right: 6vh;
+        border-radius: 5px;
+      }
+
+      .btn-hover:hover {
+        background: rgb(255, 255, 255);
+        color: #8d6d14;
+      }
+
+      .btn-hover:before,
+      .btn-hover:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 2px;
+        width: 0;
+        background: #e66740;
+        transition: 400ms ease all;
+      }
+
+      .btn-hover:after {
+        right: inherit;
+        top: inherit;
+        left: 0;
+        bottom: 0;
+      }
+
+      .btn-hover:hover:before,
+      .btn-hover:hover:after {
+        width: 100%;
+        transition: 800ms ease all;
+      }
+
+      /* ? btn qr code ends  */
+    </style>
+    <style>
+      .to-left {
+        position: absolute;
+        top: 250px;
+        left: 170px;
+        letter-spacing: 1px;
+        font-size: 30px;
+        color: #cacaca;
+      }
+      .topper-left {
+        position: absolute;
+        top: 180px;
+        left: 30px;
+        letter-spacing: 1px;
+        font-size: 50px;
+      }
+      .top-left {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        letter-spacing: 1px;
+        font-size: 20px;
+        color: #ffbb00;
+        font-family: cursive;
+      }
+      .top-left1 {
+        position: absolute;
+        top: 44px;
+        right: 16px;
+        letter-spacing: 1px;
+        font-size: 20px;
+        color: #cacaca;
+      }
+      .bottom-left {
+        position: absolute;
+        bottom: 80px;
+        left: 16px;
+        letter-spacing: 1px;
+      }
+      .bottom-right {
+        position: absolute;
+        bottom: 23px;
+        right: 20px;
+      }
+      .bottom-right a {
+        text-decoration: none;
+        color: white;
+      }
+      .logout-link {
+        pointer-events: none;
+      }
+      .bot-right {
+        position: absolute;
+        bottom: 20px;
+        right: 120px;
+      }
+      .bot-right-opa {
+        opacity: 0;
+      }
+    </style>
   </head>
-  <body>
+  <body style="background:#2f2626">
     <!-- ? Nav-Bar-Start -->
     <nav>
       <div class="logo">
-        <h4>ELECTION 2019</h4>
+        <h4>GENERAL ELECTION 2019</h4>
       </div>
       <ul class="nav-links">
-        {% if user.is_authenticated %}
-        <li style="color:cyan">Hello, {{ user.first_name }}</li>
-        {% endif %}
         <li>
           <a
             ><i style="font-size:17px" class="fa fa-phone"></i> TOLL-FREE:
@@ -48,17 +170,427 @@
       </div>
     </nav>
     <!-- ? Nav-Bar-End -->
-    <div class="main_background">
-      <button value="BJP" name="BJP">BJP</button><br />
-      <button value="CONGRESS" name="CONGRESS">CONGRESS</button><br />
-      <button value="AAP" name="AAP">AAP</button><br />
-      <button value="NOTA" name="NOTA">NOTA</button>
+    <div style="margin-top: 0.1px" class="container">
+      <img
+        src="../../static/img/Updated/mesh-1430108.png"
+        alt="Snow"
+        style="width: 100vw;height: 87vh;"
+      />
+      <div class="bot-right">
+        <!-- logout-link -->
+        <p
+          style="font-size: 23px;color: rgb(216, 216, 216)"
+          id="thanks-logout"
+          class="bot-right-opa"
+        >
+          Thanks for voting, please click confirm on Metamask and Logout
+        </p>
+      </div>
+      <div class="bottom-right">
+        <!-- logout-link -->
+        <a
+          id="main-logout"
+          href="logout"
+          class="logout-link"
+          style="opacity: 0.5;;background: #a77171;padding: 15px"
+          >Logout</a
+        >
+      </div>
+      <div class="topper-left">
+        {% if user.is_authenticated %}
+        <p style="color:rgb(255, 192, 110)">
+          Hello, {{ user.first_name }} {{ user.last_name }}
+        </p>
+        {% endif %}
+      </div>
+      <div class="to-left">
+        {% if user.is_authenticated %}
+        <p style="color:blanchedalmond">#GoVote</p>
+        {% endif %}
+      </div>
+      <div class="top-left">
+        Always vote for principle, though you may vote alone, and you may
+        cherish the sweetest reflection that your vote is never lost.
+      </div>
+      <div class="top-left1">
+        -John Quincy Adams
+      </div>
+      <div class="centered ">
+        <button class="btn-hover" id="b-j-p" name="BJP">
+          BJP <br /><img
+            style="width: 80px"
+            src="../../static/img/b-logo.jpg"
+            alt=""
+          /></button
+        ><br />
+        <button class="btn-hover" id="i-n-c" name="CONGRESS">
+          INC <br /><img
+            style="width: 80px;height: 50px;"
+            src="../../static/img/c-logo.png"
+            alt=""
+          /></button
+        ><br />
+        <button class="btn-hover" id="a-a-p" name="AAP">
+          AAP <br /><img
+            style="width: 80px;height: 50px;"
+            src="../../static/img/aap-logo.jpg"
+            alt=""
+          /></button
+        ><br />
+        <button class="btn-hover" id="n-o-t-a" name="NOTA">
+          NOTA <br /><img
+            style="width: 80px;height: 50px;"
+            src="../../static/img/nota.png"
+            alt=""
+          />
+        </button>
+      </div>
     </div>
+    <!-- end -->
+    <footer style="height: 28px;;margin-top: 0;background:#2f2626 ">
+      <div style="text-align: center" class="footer">
+        <p
+          style="font-size: 16px;font-family: monospace;color: rgb(189, 189, 189)"
+        >
+          <b>ELECTION COMMISSION OF INDIA</b>
+        </p>
+      </div>
+    </footer>
   </body>
   <script src="{% static '../static/js/baap.js' %}"></script>
   <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
+
   <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     crossorigin="anonymous"
   ></script>
+  <script>
+    var contract;
+
+    $(document).ready(function() {
+      web3 = new Web3(web3.currentProvider);
+
+      var address = "0x0e6ad68508bc52418ba202082ff8299c2156ae85";
+      var abi = [
+        {
+          constant: false,
+          inputs: [],
+          name: "aap",
+          outputs: [],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "function"
+        },
+        {
+          constant: false,
+          inputs: [],
+          name: "bpg",
+          outputs: [],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "function"
+        },
+        {
+          constant: false,
+          inputs: [],
+          name: "congress",
+          outputs: [],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "function"
+        },
+        {
+          constant: false,
+          inputs: [],
+          name: "nota",
+          outputs: [],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "function"
+        },
+        {
+          inputs: [],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "constructor"
+        },
+        {
+          constant: true,
+          inputs: [],
+          name: "getaap",
+          outputs: [
+            {
+              name: "",
+              type: "int256"
+            }
+          ],
+          payable: false,
+          stateMutability: "view",
+          type: "function"
+        },
+        {
+          constant: true,
+          inputs: [],
+          name: "getbpg",
+          outputs: [
+            {
+              name: "",
+              type: "int256"
+            }
+          ],
+          payable: false,
+          stateMutability: "view",
+          type: "function"
+        },
+        {
+          constant: true,
+          inputs: [],
+          name: "getcongress",
+          outputs: [
+            {
+              name: "",
+              type: "int256"
+            }
+          ],
+          payable: false,
+          stateMutability: "view",
+          type: "function"
+        },
+        {
+          constant: true,
+          inputs: [],
+          name: "getnota",
+          outputs: [
+            {
+              name: "",
+              type: "int256"
+            }
+          ],
+          payable: false,
+          stateMutability: "view",
+          type: "function"
+        },
+        {
+          constant: true,
+          inputs: [],
+          name: "gettv",
+          outputs: [
+            {
+              name: "",
+              type: "int256"
+            }
+          ],
+          payable: false,
+          stateMutability: "view",
+          type: "function"
+        }
+      ];
+      contract = new web3.eth.Contract(abi, address);
+      // buttons
+      $("#b-j-p").click(function() {
+        web3.eth
+          .getAccounts()
+          .then(function(accounts) {
+            var acc = accounts[0];
+            return contract.methods.bpg().send({
+              from: acc
+            });
+          })
+          .then(function(tx) {
+            console.log(tx);
+          })
+          .catch(function(tx) {
+            console.log(tx);
+          });
+
+        document.getElementById("b-j-p").disabled = true;
+        document.getElementById("b-j-p").style.background = "red";
+        document.getElementById("b-j-p").style.opacity = 0.5;
+        document.getElementById("b-j-p").classList.remove("btn-hover");
+
+        document.getElementById("i-n-c").disabled = true;
+        document.getElementById("i-n-c").style.background = "red";
+        document.getElementById("i-n-c").style.opacity = 0.5;
+        document.getElementById("i-n-c").classList.remove("btn-hover");
+
+        document.getElementById("a-a-p").disabled = true;
+        document.getElementById("a-a-p").style.background = "red";
+        document.getElementById("a-a-p").style.opacity = 0.5;
+        document.getElementById("a-a-p").classList.remove("btn-hover");
+
+        document.getElementById("n-o-t-a").disabled = true;
+        document.getElementById("n-o-t-a").style.background = "red";
+        document.getElementById("n-o-t-a").style.opacity = 0.5;
+        document.getElementById("n-o-t-a").classList.remove("btn-hover");
+
+        document.getElementById("main-logout").style.opacity = 1;
+        document.getElementById("main-logout").classList.remove("logout-link");
+
+        document
+          .getElementById("thanks-logout")
+          .classList.remove("bot-right-opa");
+      });
+      $("#i-n-c").click(function() {
+        web3.eth
+          .getAccounts()
+          .then(function(accounts) {
+            var acc = accounts[0];
+            return contract.methods.congress().send({
+              from: acc
+            });
+          })
+          .then(function(tx) {
+            console.log(tx);
+          })
+          .catch(function(tx) {
+            console.log(tx);
+          });
+
+        document.getElementById("b-j-p").disabled = true;
+        document.getElementById("b-j-p").style.background = "red";
+        document.getElementById("b-j-p").style.opacity = 0.5;
+        document.getElementById("b-j-p").classList.remove("btn-hover");
+
+        document.getElementById("i-n-c").disabled = true;
+        document.getElementById("i-n-c").style.background = "red";
+        document.getElementById("i-n-c").style.opacity = 0.5;
+        document.getElementById("i-n-c").classList.remove("btn-hover");
+
+        document.getElementById("a-a-p").disabled = true;
+        document.getElementById("a-a-p").style.background = "red";
+        document.getElementById("a-a-p").style.opacity = 0.5;
+        document.getElementById("a-a-p").classList.remove("btn-hover");
+
+        document.getElementById("n-o-t-a").disabled = true;
+        document.getElementById("n-o-t-a").style.background = "red";
+        document.getElementById("n-o-t-a").style.opacity = 0.5;
+        document.getElementById("n-o-t-a").classList.remove("btn-hover");
+
+        document.getElementById("main-logout").style.opacity = 1;
+        document.getElementById("main-logout").classList.remove("logout-link");
+
+        document
+          .getElementById("thanks-logout")
+          .classList.remove("bot-right-opa");
+      });
+      $("#a-a-p").click(function() {
+        web3.eth
+          .getAccounts()
+          .then(function(accounts) {
+            var acc = accounts[0];
+            return contract.methods.aap().send({
+              from: acc
+            });
+          })
+          .then(function(tx) {
+            console.log(tx);
+          })
+          .catch(function(tx) {
+            console.log(tx);
+          });
+
+        document.getElementById("b-j-p").disabled = true;
+        document.getElementById("b-j-p").style.background = "red";
+        document.getElementById("b-j-p").style.opacity = 0.5;
+        document.getElementById("b-j-p").classList.remove("btn-hover");
+
+        document.getElementById("i-n-c").disabled = true;
+        document.getElementById("i-n-c").style.background = "red";
+        document.getElementById("i-n-c").style.opacity = 0.5;
+        document.getElementById("i-n-c").classList.remove("btn-hover");
+
+        document.getElementById("a-a-p").disabled = true;
+        document.getElementById("a-a-p").style.background = "red";
+        document.getElementById("a-a-p").style.opacity = 0.5;
+        document.getElementById("a-a-p").classList.remove("btn-hover");
+
+        document.getElementById("n-o-t-a").disabled = true;
+        document.getElementById("n-o-t-a").style.background = "red";
+        document.getElementById("n-o-t-a").style.opacity = 0.5;
+        document.getElementById("n-o-t-a").classList.remove("btn-hover");
+
+        document.getElementById("main-logout").style.opacity = 1;
+        document.getElementById("main-logout").classList.remove("logout-link");
+
+        document
+          .getElementById("thanks-logout")
+          .classList.remove("bot-right-opa");
+      });
+      $("#n-o-t-a").click(function() {
+        web3.eth
+          .getAccounts()
+          .then(function(accounts) {
+            var acc = accounts[0];
+            return contract.methods.nota().send({
+              from: acc
+            });
+          })
+          .then(function(tx) {
+            console.log(tx);
+          })
+          .catch(function(tx) {
+            console.log(tx);
+          });
+
+        document.getElementById("b-j-p").disabled = true;
+        document.getElementById("b-j-p").style.background = "red";
+        document.getElementById("b-j-p").style.opacity = 0.5;
+        document.getElementById("b-j-p").classList.remove("btn-hover");
+
+        document.getElementById("i-n-c").disabled = true;
+        document.getElementById("i-n-c").style.background = "red";
+        document.getElementById("i-n-c").style.opacity = 0.5;
+        document.getElementById("i-n-c").classList.remove("btn-hover");
+
+        document.getElementById("a-a-p").disabled = true;
+        document.getElementById("a-a-p").style.background = "red";
+        document.getElementById("a-a-p").style.opacity = 0.5;
+        document.getElementById("a-a-p").classList.remove("btn-hover");
+
+        document.getElementById("n-o-t-a").disabled = true;
+        document.getElementById("n-o-t-a").style.background = "red";
+        document.getElementById("n-o-t-a").style.opacity = 0.5;
+        document.getElementById("n-o-t-a").classList.remove("btn-hover");
+
+        document.getElementById("main-logout").style.opacity = 1;
+        document.getElementById("main-logout").classList.remove("logout-link");
+
+        document
+          .getElementById("thanks-logout")
+          .classList.remove("bot-right-opa");
+      });
+    });
+  </script>
+  <script type="text/javascript">
+    var ctrlKeyDown = false;
+
+    $(document).ready(function() {
+      $(document).on("keydown", keydown);
+      $(document).on("keyup", keyup);
+    });
+
+    function keydown(e) {
+      if (
+        (e.which || e.keyCode) == 116 ||
+        ((e.which || e.keyCode) == 82 && ctrlKeyDown)
+      ) {
+        // Pressing F5 or Ctrl+R
+        e.preventDefault();
+      } else if ((e.which || e.keyCode) == 17) {
+        // Pressing  only Ctrl
+        ctrlKeyDown = true;
+      }
+    }
+
+    function keyup(e) {
+      // Key up Ctrl
+      if ((e.which || e.keyCode) == 17) ctrlKeyDown = false;
+    }
+  </script>
+    <script>
+    history.pushState(null, null, location.href);
+    window.onpopstate = function() {
+      history.go(1);
+    };
+  </script>
 </html>

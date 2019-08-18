@@ -1,0 +1,58 @@
+<body>
+  <form action="#myForm">
+         Name * <input name="name1" placeholder="required" required> <br />
+         Surname * <input name="surname" placeholder="required" required> <br />
+         Age <input name="surname" placeholder="not-required"> <br />
+         <button id="submitBtn" type="submit">Submit</button>
+  </form>
+</body>
+
+//This is the first load of is valid, just in case the user gets back again with old inputs
+   //if all the required inputs are filled enable the button
+   var isValid = true;
+     $('input,textarea,select').filter('[required]:visible').each(function() {
+      if ( $(this).val() === '' )
+         isValid = false;
+    });
+    if( isValid ) {
+       $('#submitBtn').prop('disabled', false);
+    } else {
+       $('#submitBtn').prop('disabled', true);
+    };
+    $('#submitBtn').click(function() {
+        var isValid = true;
+         $('input,textarea,select').filter('[required]:visible').each(function() {
+          if ( $(this).val() === '' )
+             isValid = false;
+        });
+        if( isValid ) {
+           $("#myForm")[0].submit(); 
+       };
+
+    });
+
+    //When a input is changed check all the inputs and if all are filled, enable the button
+     $('input,textarea,select').change(function() {
+        var isValid = true;
+         $('input,textarea,select').filter('[required]:visible').each(function() {
+          if ( $(this).val() === '' )
+             isValid = false;
+        });
+        if( isValid ) {
+           $('#submitBtn').prop('disabled', false);
+        } else {
+           $('#submitBtn').prop('disabled', true);
+        };
+    });
+
+    //In case the user edits the button with firebug and removes disabled, check
+    $('#submitBtn').click(function() {
+         var isValid = true;
+         $('input,textarea,select').filter('[required]:visible').each(function() {
+          if ( $(this).val() === '' )
+             isValid = false;
+        });
+        if( isValid ) {
+           $("#myForm")[0].submit(); 
+       };
+    });

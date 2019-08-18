@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -82,13 +83,31 @@ WSGI_APPLICATION = 'SecureElection.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'SecureElection',
-        'USER': 'postgres',
-        'PASSWORD': '123',
-        'HOST': 'localhost'
+        'NAME': 'GENERALELECTION',
+        'USER': 'myadmin@mycodefundoserver',
+        'PASSWORD': 'M@noj22032000',
+        'HOST': 'mycodefundoserver.postgres.database.azure.com',
+        'SSLMODE': 'require'
 
     }
 }
+
+# # Construct connection string
+# conn_string = "host=mycodefundoserver.postgres.database.azure.com
+#  user=myadmin@mycodefundoserver
+#   dbname=postgres password=M@noj22032000 sslmode=require".format(host, user, dbname, password, sslmode)
+# conn = psycopg2.connect(conn_string) 
+# print ("Connection established")
+
+# host = "mycodefundoserver.postgres.database.azure.com"
+# user = "myadmin@mycodefundoserver"
+# dbname = "postgres" 
+# password = "M@noj22032000"
+# sslmode = "require"
+# Construct connection string
+# conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
+# conn = psycopg2.connect(conn_string) 
+
 
 
 # Password validation
